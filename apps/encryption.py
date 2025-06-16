@@ -41,7 +41,7 @@ def _():
 
 @app.cell
 def _(input_text_area, encode_button):
-    # mo.stop(not encode_button.value)
+    mo.stop(not encode_button.value)
 
     encoded_text = encode(input_text_area.value)
     mo.md(encoded_text)
