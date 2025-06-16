@@ -21,7 +21,7 @@ with app.setup:
 def _():
     mo.md(
         """
-        # Interactive Data Visualization
+        # Encode
 
         This notebook demonstrates a simple interactive web app.
         """
@@ -34,14 +34,14 @@ def _():
     input_text_area = mo.ui.text_area(placeholder="type some text to be encoded ...")
     input_text_area
 
-    encode_button = mo.ui.run_button(label="Encode")
-    encode_button
-
     return input_text_area
 
 
 @app.cell
 def _(input_text_area, encode_button):
+    encode_button = mo.ui.run_button(label="Encode")
+    encode_button
+
     mo.stop(not encode_button.value)
 
     encoded_text = encode(input_text_area.value)
