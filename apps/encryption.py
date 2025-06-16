@@ -34,7 +34,7 @@ def _():
     input_text_area = mo.ui.text_area(placeholder="type some text to be encoded ...")
     input_text_area
 
-    encode_button = mo.ui.run_button("Encode")
+    encode_button = mo.ui.run_button(label="Encode")
     encode_button
 
     return input_text_area
