@@ -101,7 +101,7 @@ def encode_simple(text):
 
     text = text.lower()
     for character in text:
-        if (character.isalpha()) or (character == " "):
+        if character.isalpha():
             number = ord(character) - ord("a") + 1 # a = 0 + 1, z = 25 + 1
             new_char = encode_character(number, shift_amount)
             encoded_text += new_char
@@ -144,7 +144,8 @@ def decode_simple(text):
             i += 2
             number = symbol_to_atomic_number(symbol)
             number = number - shift_amount - 1
-            number = number - 27*int(number/27)
+            number = number%27
+            #number = number - 27*int(number/27)
             if number == 26:
                 decoded_text += " "
             else:
