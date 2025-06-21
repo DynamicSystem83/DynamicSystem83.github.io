@@ -23,27 +23,16 @@ def _():
     Input form cell.
     """
 
-    entries = os.listdir('.')
-    print(entries)
-    entries += os.listdir('..')
-    print(entries)
-    entries += os.listdir('./__marimo__')
-    print(entries)
-    entries += os.listdir('./__marimo__/cache')
-    print(entries)
-    entries += os.listdir('../marimo')
-    print(entries)
-
     file = mo.notebook_location() / "public" / "book_series.xml"
     file = "public/book_series.xml"
 
 
-    #with open(file, "r") as xml_file:
-    #    lines = xml_file.readlines()
+    with open(file, "r") as xml_file:
+        lines = xml_file.readlines()
 
-    #print(lines)
+    print(lines)
     output_text = "test"
-    output_text_area = mo.ui.code_editor(value=entries)
+    output_text_area = mo.ui.code_editor(value=lines)
     output_text_area
 
     return output_text_area
