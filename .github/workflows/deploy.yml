@@ -35,6 +35,8 @@ jobs:
         run: |
           uv run .github/scripts/build.py  # This script exports all notebooks to the _site directory
           tree _site                       # Display the exported files
+        env:
+          BOOK_SERIES_ACCESS_KEY_ID: ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}
     
       # Upload the generated site as an artifact for the deploy job
       - name: 📤 Upload artifact
@@ -62,5 +64,3 @@ jobs:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment                 # ID used to reference this step's outputs
         uses: actions/deploy-pages@v4  # GitHub's official Pages deployment action
-        with:
-          BOOK_SERIES_ACCESS_KEY_ID: ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}
