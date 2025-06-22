@@ -17,6 +17,7 @@ concurrency:
 # Environment variables used by the workflow
 env:
   UV_SYSTEM_PYTHON: 1   # Use system Python with uv package manager
+  BOOK_SERIES_ACCESS_KEY_ID: ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}  # Expose the secret as an environment variable
 
 jobs:
   # The build job exports marimo notebooks to static HTML/WebAssembly
@@ -60,7 +61,7 @@ jobs:
     steps:
       - name: Use the secret
         run: |
-          echo "Using the API key: ${{ secrets.API_KEY }}"
+          echo "Using the API key: ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}"
           # Your deployment commands using environment variables
           # Example: Your deployment command might use an API key
           # provided as an environment variable to a command-line tool
