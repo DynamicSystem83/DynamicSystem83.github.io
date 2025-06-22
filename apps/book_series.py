@@ -15,6 +15,7 @@ with app.setup:
     import numpy as np
     import xml.etree.ElementTree as et
     import os
+    import tempfile
 
 
 @app.cell
@@ -23,16 +24,12 @@ def _():
     Input form cell.
     """
 
-    file = mo.notebook_location() / "public" / "book_series.xml"
-    file = "public/book_series.xml"
+    bucket = "831273346538-book-series"
 
+    access_key_id = os.environ["BOOK_SERIES_ACCESS_KEY_ID"]
 
-    with open(file, "r") as xml_file:
-        lines = xml_file.readlines()
-
-    print(lines)
     output_text = "test"
-    output_text_area = mo.ui.code_editor(value=lines)
+    output_text_area = mo.ui.code_editor(value=access_key_id)
     output_text_area
 
     return output_text_area
