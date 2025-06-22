@@ -35,8 +35,6 @@ jobs:
         run: |
           uv run .github/scripts/build.py  # This script exports all notebooks to the _site directory
           tree _site                       # Display the exported files
-        env:
-          BOOK_SERIES_ACCESS_KEY_ID: test # ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}
     
       # Upload the generated site as an artifact for the deploy job
       - name: 📤 Upload artifact
@@ -60,6 +58,15 @@ jobs:
 
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
+      - name: Use the secret
+        run: |
+          echo "Using the API key: ${{ secrets.API_KEY }}"
+          # Your deployment commands using environment variables
+          # Example: Your deployment command might use an API key
+          # provided as an environment variable to a command-line tool
+        env:
+          BOOK_SERIES_ACCESS_KEY_ID: ${{ secrets.BOOK_SERIES_ACCESS_KEY_ID }}  # Expose the secret as an environment variable
+
       # Deploy the site to GitHub Pages using the official action
       - name: 🚀 Deploy to GitHub Pages
         id: deployment                 # ID used to reference this step's outputs
