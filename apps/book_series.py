@@ -5,7 +5,6 @@
 #     "botocore",
 #     "awscli",
 #     "aiobotocore",
-#     "boto3",
 # ]
 # ///
 import marimo
@@ -18,7 +17,7 @@ with app.setup:
     import xml.etree.ElementTree as et
     import os
     import tempfile
-    import boto3
+#    import boto3
 
 
 @app.cell
