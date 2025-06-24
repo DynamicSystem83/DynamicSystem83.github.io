@@ -29,16 +29,16 @@ def _():
 
     bucket = "831273346538-book-series"
 
-    # access_key_id = os.environ["BOOK_SERIES_ACCESS_KEY_ID"]
-    access_key_id = "AKIA4DC6AUXVL7SLYA5L"
-    access_secret_key = "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"
+    access_key_id = os.environ["BOOK_SERIES_ACCESS_KEY_ID"]
+    #access_key_id = "AKIA4DC6AUXVL7SLYA5L"
+    #access_secret_key = "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"
 
-    s3_client = boto3.client("s3", aws_access_key_id=access_key_id, aws_secret_access_key=access_secret_key)
+    #s3_client = boto3.client("s3", aws_access_key_id=access_key_id, aws_secret_access_key=access_secret_key)
 
     lines = []
-    with tempfile.TemporaryFile(mode="wb") as file_handler:
-        s3_client.download_fileobj("831273346538-book-series", "test_file.txt", file_handler)
-        lines = file_handler.readlines()
+    #with tempfile.TemporaryFile(mode="wb") as file_handler:
+    #    s3_client.download_fileobj("831273346538-book-series", "test_file.txt", file_handler)
+    #    lines = file_handler.readlines()
 
     if len(lines) > 0:
         output_text = "\n".join(lines)
