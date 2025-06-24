@@ -28,8 +28,8 @@ def _():
 
     bucket = "831273346538-book-series"
 
-    access_key_id = os.environ["BOOK_SERIES_ACCESS_KEY_ID"]
-    print(access_key_id)
+    #access_key_id = os.environ["BOOK_SERIES_ACCESS_KEY_ID"]
+    print(os.environ)
     #access_key_id = "AKIA4DC6AUXVL7SLYA5L"
     #access_secret_key = "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"
 
