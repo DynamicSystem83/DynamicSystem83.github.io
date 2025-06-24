@@ -2,10 +2,10 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "marimo==0.13.15",
-#     "boto3",
 #     "botocore",
 #     "awscli",
 #     "aiobotocore",
+#     "boto3",
 # ]
 # ///
 import marimo
